@@ -13,9 +13,10 @@ public enum eScoreEvent
 // ScoreManager handles all of the scoring
 public class ScoreManager : MonoBehaviour
 { // a
-    static private ScoreManager S; // b
+    static public ScoreManager S; // b
     static public int SCORE_FROM_PREV_ROUND = 0;
     static public int HIGH_SCORE = 0;
+
 
     [Header("Set Dynamically")]
     // Fields to track score info
