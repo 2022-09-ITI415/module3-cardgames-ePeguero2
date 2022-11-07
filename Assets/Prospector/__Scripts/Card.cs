@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Card : MonoBehaviour {
+public class Card : MonoBehaviour 
+{
 
 	public string suit;
 	public int rank;

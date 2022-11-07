@@ -13,6 +13,7 @@ public class Scoreboard : MonoBehaviour
     [SerializeField] private string _scoreString;
     private Transform canvasTrans;
     // The score property also sets the scoreString
+    
     public int score
     {
         get

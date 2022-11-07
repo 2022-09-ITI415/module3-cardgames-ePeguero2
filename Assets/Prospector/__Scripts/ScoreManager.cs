@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 // An enum to handle all the possible scoring events
 public enum eScoreEvent
 {
@@ -16,14 +17,16 @@ public class ScoreManager : MonoBehaviour
     static public ScoreManager S; // b
     static public int SCORE_FROM_PREV_ROUND = 0;
     static public int HIGH_SCORE = 0;
-
+   
 
     [Header("Set Dynamically")]
     // Fields to track score info
     public int chain = 0;
     public int scoreRun = 0;
     public int score = 0;
-    
+
+
+ 
     void Awake()
     {
         if (S == null)
