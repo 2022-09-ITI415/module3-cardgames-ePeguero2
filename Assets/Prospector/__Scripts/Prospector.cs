@@ -121,7 +121,7 @@ public class Prospector : MonoBehaviour
 		{
 			// ^ Iterate through all the SlotDefs in the layout.slotDefs as tSD
 			cp = Draw(); // Pull a card from the top (beginning) of the draw Pile
-			cp.faceUp = tSD.faceUp; // Set its faceUp to the value in SlotDef
+			//cp.faceUp = tSD.faceUp; // Set its faceUp to the value in SlotDef
 			cp.transform.parent = layoutAnchor; // Make its parent layoutAnchor
 			// This replaces the previous parent: deck.deckAnchor, which
 			// appears as _Deck in the Hierarchy when the scene is playing.
@@ -135,7 +135,7 @@ public class Prospector : MonoBehaviour
 			// CardProspectors in the tableau have the state CardState.tableau
 			cp.state = eCardState.tableau;
 			// CardProspectors in the tableau have the state CardState.tableau
-			cp.SetSortingLayerName(tSD.layerName); // Set the sorting layers
+			//cp.SetSortingLayerName(tSD.layerName); // Set the sorting layers
 			tableau.Add(cp); // Add this CardProspector to the List<> tableau
 		}
 
@@ -175,16 +175,16 @@ public class Prospector : MonoBehaviour
 	{
 		foreach (CardProspector cd in tableau)
 		{
-			bool faceUp = true; // Assume the card will be face-up
+			//bool faceUp = true; // Assume the card will be face-up
 			foreach (CardProspector cover in cd.hiddenBy)
 			{
 				// If either of the covering cards are in the tableau
 				if (cover.state == eCardState.tableau)
 				{
-					faceUp = false; // then this card is face-down
+					//faceUp = false; // then this card is face-down
 				}
 			}
-			cd.faceUp = faceUp; // Set the value on the card
+			//cd.faceUp = faceUp; // Set the value on the card
 		}
 	}
 	// Moves the current target to the discardPile
@@ -199,10 +199,10 @@ public class Prospector : MonoBehaviour
 		layout.multiplier.x * layout.discardPile.x,
 		layout.multiplier.y * layout.discardPile.y,
 		-layout.discardPile.layerID + 0.5f);
-		cd.faceUp = true;
+		//cd.faceUp = true;
 		// Place it on top of the pile for depth sorting
-		cd.SetSortingLayerName(layout.discardPile.layerName);
-		cd.SetSortOrder(-100 + discardPile.Count);
+		//cd.SetSortingLayerName(layout.discardPile.layerName);
+		//cd.SetSortOrder(-100 + discardPile.Count);
 
 	}
 
@@ -219,10 +219,10 @@ public class Prospector : MonoBehaviour
 		layout.multiplier.x * layout.discardPile.x,
 		layout.multiplier.y * layout.discardPile.y,
 		-layout.discardPile.layerID);
-		cd.faceUp = true; // Make it face-up
+		//cd.faceUp = true; // Make it face-up
 						  // Set the depth sorting
-		cd.SetSortingLayerName(layout.discardPile.layerName);
-		cd.SetSortOrder(0);
+		//cd.SetSortingLayerName(layout.discardPile.layerName);
+		//cd.SetSortOrder(0);
 	}
 	// Arranges all the cards of the drawPile to show how many are left
 	void UpdateDrawPile()
@@ -239,11 +239,11 @@ public class Prospector : MonoBehaviour
 			layout.multiplier.x * (layout.drawPile.x + i * dpStagger.x),
 			layout.multiplier.y * (layout.drawPile.y + i * dpStagger.y),
 			-layout.drawPile.layerID + 0.1f * i);
-			cd.faceUp = false; // Make them all face-down
+			//cd.faceUp = false; // Make them all face-down
 			cd.state = eCardState.drawpile;
 			// Set depth sorting
-			cd.SetSortingLayerName(layout.drawPile.layerName);
-			cd.SetSortOrder(-10 * i);
+			//cd.SetSortingLayerName(layout.drawPile.layerName);
+			//cd.SetSortOrder(-10 * i);
 		}
 	}
 	// CardClicked is called any time a card in the game is clicked
@@ -267,7 +267,7 @@ public class Prospector : MonoBehaviour
 			case eCardState.tableau:
 				// Clicking a card in the tableau will check if it's a valid play
 				bool validMatch = true;
-				if (!cd.faceUp)
+				//if (!cd.faceUp)
 				{
 					// If the card is face-down, it's not valid
 					validMatch = false;
@@ -365,7 +365,7 @@ public class Prospector : MonoBehaviour
 	public bool AdjacentRank(CardProspector c0, CardProspector c1)
 	{
 		// If either card is face-down, it's not adjacent.
-		if (!c0.faceUp || !c1.faceUp) return (false);
+		//if (!c0.faceUp || !c1.faceUp) return (false);
 		// If they are 1 apart, they are adjacent
 		if (Mathf.Abs(c0.rank - c1.rank) == 1)
 		{
