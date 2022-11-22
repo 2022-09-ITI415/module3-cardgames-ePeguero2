@@ -122,6 +122,7 @@ MonoBehaviour:
     face: 
     rank: 0
     pips: []
+  spriteRenderers: []
   state: 0
   hiddenBy: []
   layoutID: 0
