@@ -352,7 +352,7 @@ public class Prospector : MonoBehaviour
 			FloatingScoreHandler(eScoreEvent.gameLoss);
 		}
 		// Reload the scene, resetting the game
-		//SceneManager.LoadScene("__Prospector_Scene_0");
+		SceneManager.LoadScene("__Prospector_Scene_0");
 		Invoke("RekoadLevel", reloadDelay);
 	}
 
@@ -365,15 +365,15 @@ public class Prospector : MonoBehaviour
 	public bool AdjacentRank(CardProspector c0, CardProspector c1)
 	{
 		// If either card is face-down, it's not adjacent.
-		//if (!c0.faceUp || !c1.faceUp) return (false);
+		if (!c0.faceUp || !c1.faceUp) return (false);
 		//If they are 1 apart, they are adjacent
-		if (Mathf.Abs(c0.rank - c1.rank) == 1)
+		if (Mathf.Abs(c0.rank + c1.rank) == 13)
 		{
 			return (true);
 		}
 		// If one is Ace and the other King, they are adjacent
-		if (c0.rank == 1 && c1.rank == 13) return (true);
-		if (c0.rank == 13 && c1.rank == 1) return (true);
+		//if (c0.rank == 1 && c1.rank == 13) return (true);
+		//if (c0.rank == 13 && c1.rank == 1) return (true);
 		// Otherwise, return false
 		return (false);
 	}
